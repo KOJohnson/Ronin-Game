@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a2d01d4f425b3848938f199392c9afb, type: 3}
+  m_Name: CombatDirectionalJog
+  m_EditorClassIdentifier: 
+  _Transition:
+    rid: 528612499091095555
+  references:
+    version: 2
+    RefIds:
+    - rid: 528612499091095555
+      type: {class: MixerTransition2D, ns: Animancer, asm: Animancer}
+      data:
+        _FadeDuration: 0.25
+        _Events:
+          _NormalizedTimes: []
+          _Callbacks: []
+          _Names: []
+        _Speed: 1
+        _Animations:
+        - {fileID: 7400002, guid: c4387e72f0a4e774aa8ad7b77b7484f5, type: 3}
+        - {fileID: 7400002, guid: c4387e72f0a4e774aa8ad7b77b7484f5, type: 3}
+        - {fileID: 7400002, guid: 7b5ce8557a9dd0b459d0bfbc54d2b21e, type: 3}
+        - {fileID: 7400002, guid: f6f2b475bc58e7d4a9f9f482f599e5bf, type: 3}
+        - {fileID: 7400002, guid: 763636920a3d1df438f771fbc90588de, type: 3}
+        - {fileID: 7400002, guid: a0521d6a9fa71254ea6f36418d13be60, type: 3}
+        - {fileID: 7400002, guid: 15643dc90788e5446881aeda5515887d, type: 3}
+        - {fileID: 7400002, guid: 2d9845c86d9c6dc419792a5285581cb3, type: 3}
+        - {fileID: 7400002, guid: 0f9fddd631a41764f84861f5b2c65682, type: 3}
+        _Speeds:
+        - 0.2
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        _SynchronizeChildren: 
+        _Thresholds:
+        - {x: 0, y: 0}
+        - {x: 0, y: 1}
+        - {x: 0, y: -1}
+        - {x: -1, y: 0}
+        - {x: 1, y: 0}
+        - {x: -0.7, y: 0.7}
+        - {x: 0.7, y: 0.7}
+        - {x: -0.7, y: -0.7}
+        - {x: 0.7, y: -0.7}
+        _DefaultParameter: {x: 0, y: 0}
+        _Type: 1

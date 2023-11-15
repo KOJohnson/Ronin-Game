@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d8571948854acf9d387424127567d1, type: 3}
+  m_Name: Long Sword Attack 6
+  m_EditorClassIdentifier: 
+  attackAnimationData:
+    attackAnimation:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes:
+        - 0.13181874
+        - 0.24114709
+        - NaN
+        _Callbacks:
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 11400000, guid: 41757ee7ce0664849a72e46c487170ef,
+                type: 2}
+              m_TargetAssemblyTypeName: Core.ScriptableObjects.WeaponEvents, Assembly-CSharp
+              m_MethodName: OnToggleDamageComponent
+              m_Mode: 6
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 1
+              m_CallState: 2
+        - m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 11400000, guid: 41757ee7ce0664849a72e46c487170ef,
+                type: 2}
+              m_TargetAssemblyTypeName: Core.ScriptableObjects.WeaponEvents, Assembly-CSharp
+              m_MethodName: OnToggleDamageComponent
+              m_Mode: 6
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+            - m_Target: {fileID: 11400000, guid: 41757ee7ce0664849a72e46c487170ef,
+                type: 2}
+              m_TargetAssemblyTypeName: Core.ScriptableObjects.WeaponEvents, Assembly-CSharp
+              m_MethodName: OnEnableCombo
+              m_Mode: 6
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 1
+              m_CallState: 2
+        _Names:
+        - Hit Open
+        - Hit Close
+      _Clip: {fileID: 7400000, guid: 01e0093d003f57d42bce9f8deef1cb22, type: 2}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+      UseRootMotion: 1
+      IsInteracting: 1
+      IsSticky: 0
+    attackType: 0
+    OverrideDamage: 0
+    damageOverride: 0
+    OverrideAnimation: 0
+    animationOverride:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 0}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+      UseRootMotion: 0
+      IsInteracting: 0
+      IsSticky: 0

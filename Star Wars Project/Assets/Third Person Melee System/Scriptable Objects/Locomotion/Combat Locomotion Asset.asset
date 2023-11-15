@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029bf802e3a14c958c1230c3e0b2a818, type: 3}
+  m_Name: Combat Locomotion Asset
+  m_EditorClassIdentifier: 
+  locomotionMixer:
+    _Asset: {fileID: 11400000, guid: d25a19dafad6f314d8cd5e2a42caf703, type: 2}
+  directionalWalkMixer:
+    _Asset: {fileID: 11400000, guid: 1955975c34dee8e479f2350d6ad444c6, type: 2}
+  directionalJogMixer:
+    _Asset: {fileID: 11400000, guid: 7a2f519340a97744bb5ba96915ffd2c6, type: 2}
+  blockingLinearMixer:
+    _Asset: {fileID: 0}
+  blockingDirectionalMixer:
+    _Asset: {fileID: 0}
+  combatWalkStart:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 0}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0
+  combatJogStart:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 0}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0
+  combatRunStart:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 0}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0
+  combatWalkStop:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 0}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0
+  combatJogStop:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 0}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0
+  combatRunStop:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 0}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0
+  combatJumpStart:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 938dd1fd6a847c742af3e5423cb5923c, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 1
+    IsSticky: 0
+  combatJumpLoop:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 0def3420ae096d54f9f0c73b3f0b6d21, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0
+  combatJumpEnd:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 5c7af293236999640a4d179cb33aa681, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0
+  dodgeForward:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 73bdac926acd976419f6bf8e07b86350, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: 0
+    UseRootMotion: 1
+    IsInteracting: 1
+    IsSticky: 0
+  dodgeBackward:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 268b5bd337212344eb04c70582acfcc3, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: 0
+    UseRootMotion: 1
+    IsInteracting: 1
+    IsSticky: 0
+  dodgeLeft:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 0849462f8a1e7534e873d70b52047a4f, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: 0
+    UseRootMotion: 1
+    IsInteracting: 1
+    IsSticky: 0
+  dodgeRight:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 91ff31223845434489030180e00c2d01, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: 0
+    UseRootMotion: 1
+    IsInteracting: 1
+    IsSticky: 0
+  rollForward:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.77
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 773eb8bb70eee6448854caf0a7ebfc1a, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 1
+    IsInteracting: 1
+    IsSticky: 0
+  rollBackward:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.77
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 6a9117b6b23cd3b4186edf2a397e3990, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 1
+    IsInteracting: 1
+    IsSticky: 0
+  rollLeft:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.77
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 4b49b24d907c8f14ea1ba424d519c7c8, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 1
+    IsInteracting: 1
+    IsSticky: 0
+  rollRight:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.77
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 8831631cdff9891489df049fcfefe82e, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 1
+    IsInteracting: 1
+    IsSticky: 0

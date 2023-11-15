@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a472a4806da7f9147a4a5cd7eee170df, type: 3}
+  m_Name: CombatLinear
+  m_EditorClassIdentifier: 
+  _Transition:
+    rid: 3419983231447203841
+  references:
+    version: 2
+    RefIds:
+    - rid: 3419983231447203841
+      type: {class: LinearMixerTransition, ns: Animancer, asm: Animancer}
+      data:
+        _FadeDuration: 0.25
+        _Events:
+          _NormalizedTimes: []
+          _Callbacks: []
+          _Names: []
+        _Speed: 1
+        _Animations:
+        - {fileID: 7400000, guid: cc4d61713745c3143a25f9b7d3053f40, type: 2}
+        - {fileID: 7400000, guid: 6d345497a8bcf1f44925d3912bde1adb, type: 2}
+        - {fileID: 7400000, guid: da0d932b062385348b242f179341ea04, type: 2}
+        - {fileID: 7400000, guid: ed75819bbe8f30a489fe3030079daacf, type: 2}
+        _Speeds: []
+        _SynchronizeChildren: 00
+        _Thresholds:
+        - 0
+        - 1
+        - 2
+        - 3
+        _DefaultParameter: 0
+        _ExtrapolateSpeed: 0

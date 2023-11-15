@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd870d3409e40cdb7c5c6b6480dc2cd, type: 3}
+  m_Name: Out of Combat Animations
+  m_EditorClassIdentifier: 
+  locomotionMixer:
+    _Asset: {fileID: 11400000, guid: 16f22e8167b63f94c8d4e51e03afdc5f, type: 2}
+  walkStart:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 8439a0a0b40f8a547b922cf82e0d21f6, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0
+  jogStart:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 70ea63253a37f98489f50d8741c62937, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0
+  runStart:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 995dd4760493dab4ebf076a91c183897, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0
+  walkStop:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: dafa4586441abb14ba6b859f77a84f56, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 1
+    IsSticky: 0
+  jogStop:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 50016eacddd89c8409ba9b1c52d31633, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 1
+    IsSticky: 0
+  runStop:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 9775deab88b708a49baeebdcf05ac5e7, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 1
+    IsSticky: 0
+  jumpStart:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400002, guid: 3f096df3aba59db4ab5d54fb7d6a97f5, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 1
+    IsSticky: 0
+  jumpLoop:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400002, guid: 80ec54c51205ab34b9f8cb18e2f0bfb9, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 1
+    IsSticky: 0
+  jumpEnd:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400002, guid: 54f197a9d97dc1f43b271d896da9589a, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 1
+    IsSticky: 0
+  slideStart:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400002, guid: 11e5adfc50600a1438582f9d18d33c7e, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0
+  slideLoop:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes: []
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400002, guid: 73f93db751b36e44fb5c303b990cce38, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0
+  slideEnd:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.36265564
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400002, guid: 21b1d380029f1df43b5c39720662fb4e, type: 3}
+    _Speed: 1
+    _NormalizedStartTime: NaN
+    UseRootMotion: 0
+    IsInteracting: 0
+    IsSticky: 0

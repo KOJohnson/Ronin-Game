@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f635f1576a5e4e98ad59fd7826a8af75, type: 3}
+  m_Name: Finisher 2
+  m_EditorClassIdentifier: 
+  finisherAnimation:
+    playerFinisherAnimation:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400002, guid: 3e0a1d5dae6723c4480c3db5e814a41b, type: 3}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+      UseRootMotion: 1
+      IsInteracting: 1
+      IsSticky: 0
+    enemyFinisherAnimation:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 7400002, guid: dbeb9c417adb8984181188b3096c947f, type: 3}
+      _Speed: 1
+      _NormalizedStartTime: NaN
+      UseRootMotion: 1
+      IsInteracting: 1
+      IsSticky: 0
+    moveOffset: 1.3
