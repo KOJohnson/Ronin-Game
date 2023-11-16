@@ -10,6 +10,11 @@ namespace ThirdPersonMeleeSystem.Managers
     {
         #region Public Fields
 
+        public event Action ForceWalkEvent;
+        public event Action DisableCombatInputEvent;
+        
+        
+
         #endregion
 
         #region Private Fields

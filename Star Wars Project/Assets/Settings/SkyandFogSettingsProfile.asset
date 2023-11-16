@@ -46,6 +46,12 @@ MonoBehaviour:
   type:
     m_OverrideState: 0
     m_Value: 1
+  renderingMode:
+    m_OverrideState: 0
+    m_Value: 0
+  material:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
   sphericalMode:
     m_OverrideState: 0
     m_Value: 1
@@ -147,6 +153,7 @@ MonoBehaviour:
   m_Name: HDShadowSettings
   m_EditorClassIdentifier: 
   active: 1
+  interCascadeBorders: 1
   maxShadowDistance:
     m_OverrideState: 0
     m_Value: 500
@@ -167,13 +174,13 @@ MonoBehaviour:
     m_Value: 0.3689657
   cascadeShadowBorder0:
     m_OverrideState: 1
-    m_Value: 0.42367792
+    m_Value: 0.24084121
   cascadeShadowBorder1:
     m_OverrideState: 1
-    m_Value: 0.2573529
+    m_Value: 0.31092355
   cascadeShadowBorder2:
     m_OverrideState: 1
-    m_Value: 0.29368052
+    m_Value: 0.39251032
   cascadeShadowBorder3:
     m_OverrideState: 0
     m_Value: 0
@@ -285,6 +292,7 @@ MonoBehaviour:
   - {fileID: -7515943950026429713}
   - {fileID: 513571246337233635}
   - {fileID: 2315865457274356426}
+  - {fileID: 2711167050735968388}
 --- !u!114 &513571246337233635
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -343,6 +351,9 @@ MonoBehaviour:
     m_Value: {fileID: 0}
     dimension: 2
   cloudControl:
+    m_OverrideState: 1
+    m_Value: 0
+  cloudSimpleMode:
     m_OverrideState: 1
     m_Value: 0
   m_CloudPreset:
@@ -511,6 +522,15 @@ MonoBehaviour:
   erosionNoiseType:
     m_OverrideState: 1
     m_Value: 1
+  microErosion:
+    m_OverrideState: 0
+    m_Value: 0
+  microErosionFactor:
+    m_OverrideState: 0
+    m_Value: 0.5
+  microErosionScale:
+    m_OverrideState: 0
+    m_Value: 200
   ambientLightProbeDimmer:
     m_OverrideState: 1
     m_Value: 1
@@ -567,9 +587,6 @@ MonoBehaviour:
   shadowResolution:
     m_OverrideState: 1
     m_Value: 256
-  shadowPlaneHeightOffset:
-    m_OverrideState: 1
-    m_Value: 0
   shadowDistance:
     m_OverrideState: 1
     m_Value: 8000
@@ -707,6 +724,52 @@ MonoBehaviour:
   m_DenoiserRadius:
     m_OverrideState: 0
     m_Value: 0.5
+--- !u!114 &2711167050735968388
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f077503be6ae942a1e1245dbd53ea9, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  active: 1
+  quality:
+    m_OverrideState: 0
+    m_Value: 1
+  threshold:
+    m_OverrideState: 1
+    m_Value: 3
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.35
+  scatter:
+    m_OverrideState: 0
+    m_Value: 0.7
+  tint:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  dirtTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  dirtIntensity:
+    m_OverrideState: 0
+    m_Value: 0
+  anamorphic:
+    m_OverrideState: 0
+    m_Value: 1
+  m_Resolution:
+    m_OverrideState: 0
+    m_Value: 2
+  m_HighQualityPrefiltering:
+    m_OverrideState: 0
+    m_Value: 0
+  m_HighQualityFiltering:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!114 &7642060734654139733
 MonoBehaviour:
   m_ObjectHideFlags: 3

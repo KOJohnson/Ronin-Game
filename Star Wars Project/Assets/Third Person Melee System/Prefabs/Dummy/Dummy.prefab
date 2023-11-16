@@ -1439,10 +1439,10 @@ GameObject:
   - component: {fileID: 6856156315605976241}
   - component: {fileID: 327755666723191474}
   - component: {fileID: 1792121014883444733}
+  - component: {fileID: 2476737888460103475}
   - component: {fileID: 1671261704157807808}
   - component: {fileID: 3852165940715826749}
   - component: {fileID: 4319386604115909560}
-  - component: {fileID: 2476737888460103475}
   m_Layer: 0
   m_Name: Dummy
   m_TagString: Untagged
@@ -1466,7 +1466,7 @@ Transform:
   - {fileID: 2892455843383361715}
   - {fileID: 3016969913621057357}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!95 &7338275157726833941
 Animator:
@@ -1548,9 +1548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33015165aec280348ad76f6bf9f0b026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animancerComponent: {fileID: 6856156315605976241}
+  <AnimancerComponent>k__BackingField: {fileID: 0}
   layerFadeDuration: 0.25
-  actionLayerMask: {fileID: 0}
   idleAnimation: {fileID: 7400000, guid: 318c8f0eba03d08498c0ff665b5728c8, type: 2}
 --- !u!114 &1792121014883444733
 MonoBehaviour:
@@ -1566,6 +1565,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthStatPreset: {fileID: 11400000, guid: 1d03c78e21339e048a0b83e0b1c22d8d, type: 2}
   healthBarUI: {fileID: 6246971516512091472}
+--- !u!114 &2476737888460103475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200173479486870744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eed95ffd51e4ce49af279ff6f8c33c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  postureStatPreset: {fileID: 11400000, guid: 5d6d960a0f32d134d8f7ff60da6fceb8, type: 2}
+  postureBarUIComponent: {fileID: 3068201752818799109}
 --- !u!114 &1671261704157807808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1633,20 +1646,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationManager: {fileID: 327755666723191474}
   healthComponent: {fileID: 1792121014883444733}
---- !u!114 &2476737888460103475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5200173479486870744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eed95ffd51e4ce49af279ff6f8c33c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  postureStatPreset: {fileID: 11400000, guid: 5d6d960a0f32d134d8f7ff60da6fceb8, type: 2}
-  postureBarUIComponent: {fileID: 3068201752818799109}
 --- !u!1 &5734424672058645275
 GameObject:
   m_ObjectHideFlags: 0

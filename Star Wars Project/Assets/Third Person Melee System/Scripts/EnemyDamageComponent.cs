@@ -1,3 +1,4 @@
+using System;
 using ThirdPersonMeleeSystem.Interfaces;
 using ThirdPersonMeleeSystem.Managers;
 using ThirdPersonMeleeSystem.ScriptableObjects;
@@ -19,12 +20,18 @@ namespace ThirdPersonMeleeSystem
         #endregion
     
         #region Serialized Fields
-    
+        
+        [Header("Refs")]
+        [SerializeField] private EnemyController enemyController;
         [SerializeField] private AnimationManager animationManager;
         [SerializeField] private HealthComponent healthComponent;
         [SerializeField] private PostureComponent postureComponent;
         [SerializeField] private HitReactionAnimation hitReactionData;
-    
+
+        [Header("Damage Collider")] 
+        [SerializeField] private Collider damageCollider;
+        
+        [Header("Unity Events")]
         [SerializeField] private UnityEvent OnTakeDamageEvent;
         [SerializeField] private UnityEvent OnBlockEvent;
         [SerializeField] private UnityEvent OnTakePostureDamageEvent;
@@ -41,6 +48,17 @@ namespace ThirdPersonMeleeSystem
 
         private void Start()
         {
+            
+        }
+
+        private void OnEnable()
+        {
+            enemyController.deathEvent += DisableDamageCollider;
+        }
+
+        private void OnDisable()
+        {
+            enemyController.deathEvent -= DisableDamageCollider;
         }
 
         public void TakeDamage(Vector3 attackerPos, int damage, int postureDamage, AttackType attackType)
@@ -50,19 +68,25 @@ namespace ThirdPersonMeleeSystem
                 switch (attackType)
                 {
                     case AttackType.LightAttack:
-                        OnBlockEvent?.Invoke(); //Attack Blocked
+                        OnBlockEvent?.Invoke();
                         break;
                     case AttackType.HeavyAttack:
-                        OnTakePostureDamageEvent?.Invoke(); //Do posture damage
-                        if (postureComponent) postureComponent.TakePostureDamage(postureDamage);
+                        OnTakePostureDamageEvent?.Invoke();
+                        postureComponent.TakePostureDamage(postureDamage);
                         break;
                 }
             }
             else
             {
-                OnTakeDamageEvent?.Invoke(); //Do damage
-                if (healthComponent) healthComponent.TakeDamage(damage);
-                if (animationManager) animationManager.PlayAction(PlayHitReaction(attackerPos));
+                OnTakeDamageEvent?.Invoke();
+                healthComponent.TakeDamage(damage);
+                animationManager.PlayAction(PlayHitReaction(attackerPos));
+            }
+
+            if (healthComponent.IsDead())
+            {
+                Debug.Log("is dead is " + healthComponent.IsDead());
+                enemyController.OnDeathEvent();
             }
         }
 
@@ -74,6 +98,11 @@ namespace ThirdPersonMeleeSystem
         private Vector3 GetRelativePosition(Vector3 attacker)
         {
             return transform.InverseTransformPoint(attacker);
+        }
+
+        private void DisableDamageCollider()
+        {
+            damageCollider.enabled = false;
         }
     
     }

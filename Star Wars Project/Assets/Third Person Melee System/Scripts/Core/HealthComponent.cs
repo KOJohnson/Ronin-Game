@@ -1,4 +1,5 @@
-﻿using ThirdPersonMeleeSystem.ScriptableObjects;
+﻿using Sirenix.OdinInspector;
+using ThirdPersonMeleeSystem.ScriptableObjects;
 using UnityEngine;
 
 namespace ThirdPersonMeleeSystem
@@ -12,7 +13,7 @@ namespace ThirdPersonMeleeSystem
     
         #region Private Fields
 
-        private int _currentHealth;    
+        [ShowInInspector]private int _currentHealth;    
     
         #endregion
     
@@ -35,12 +36,13 @@ namespace ThirdPersonMeleeSystem
         public void TakeDamage(int damage)
         {
             if (_currentHealth <= 0){ return; }
-            
             _currentHealth -= damage;
             if (healthBarUI) healthBarUI.SetHealthBarUI(_currentHealth, healthStatPreset.GetMaxHealth());
-            
-            Debug.Log($"Hit for: {damage} damage!");
-            //if current health <= 0 do death stuff
+        }
+
+        public bool IsDead()
+        {
+            return _currentHealth <= 0;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace ThirdPersonMeleeSystem.ScriptableObjects
 {
@@ -7,6 +8,7 @@ namespace ThirdPersonMeleeSystem.ScriptableObjects
     public class TextureSound
     {
         public Texture texture;
+        public AudioResource soundAsset;
         public AudioClip sound;
     }
     

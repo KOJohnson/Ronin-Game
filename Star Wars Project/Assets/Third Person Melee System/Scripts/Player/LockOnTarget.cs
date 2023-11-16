@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace ThirdPersonMeleeSystem
@@ -5,8 +6,14 @@ namespace ThirdPersonMeleeSystem
     [RequireComponent(typeof(Collider))]
     public class LockOnTarget : MonoBehaviour
     {
+        [SerializeField] private EnemyController enemyController;
         [SerializeField] private Vector3 lockOnOffset;
         [SerializeField] private Vector3 lockOnUIOffset;
+
+        private void OnEnable()
+        {
+            enemyController.deathEvent += () => enabled = false;
+        }
 
         public Vector3 LockOnPoint()
         {

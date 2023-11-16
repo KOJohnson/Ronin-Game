@@ -15,6 +15,7 @@ namespace ThirdPersonMeleeSystem.Managers
 
         protected AnimancerLayer _locomotionLayer;
         protected AnimancerLayer _actionLayer;
+        protected AnimancerLayer _actionLayerMasked;
 
         #endregion
     
@@ -36,6 +37,7 @@ namespace ThirdPersonMeleeSystem.Managers
         {
             _locomotionLayer = AnimancerComponent.Layers[0];
             _actionLayer = AnimancerComponent.Layers[1];
+            _actionLayerMasked = AnimancerComponent.Layers[2];
         }
 
         public void Play(AnimationClip motion)
@@ -52,6 +54,16 @@ namespace ThirdPersonMeleeSystem.Managers
             AnimancerState state = _actionLayer.Play(motion);
             state.Events.OnEnd += OnActionEnd;
         }
+        
+        public void PlayAction(AnimationData motion, AvatarMask mask)
+        {
+            _actionLayerMasked.SetMask(mask);
+            if (motion.Clip == null) return;
+            IsInteracting = motion.IsInteracting;
+            UseRootMotion = motion.UseRootMotion;
+            AnimancerState state = _actionLayerMasked.Play(motion);
+            state.Events.OnEnd += OnActionMaskedEnd;
+        }
 
         public void Play(string stateName, bool isInteracting)
         {
@@ -63,6 +75,12 @@ namespace ThirdPersonMeleeSystem.Managers
         {
             ResetModifiers();
             _actionLayer.StartFade(0f, layerFadeDuration);
+        }
+        
+        protected void OnActionMaskedEnd()
+        {
+            ResetModifiers();
+            _actionLayerMasked.StartFade(0f, layerFadeDuration);
         }
 
         private void ResetModifiers()

@@ -21,7 +21,7 @@ namespace ThirdPersonMeleeSystem.StateMachine
         {
             base.Tick(delta);
             _stateMachineController.AnimationManager.SetAnimatorLinearVelocity(_runTarget);
-            _stateMachineController.AnimationManager.SetAnimatorDirectionalVelocity(_runTarget);
+            //_stateMachineController.AnimationManager.SetAnimatorDirectionalVelocity(_runTarget);
         }
 
         public override void CheckSwitchState()
@@ -30,11 +30,7 @@ namespace ThirdPersonMeleeSystem.StateMachine
             HandleWalkStateTransition();
             HandleJogStateTransition();
             HandleIdleStateTransition();
-
-            if (InputController.SlideFlag)
-            {
-                ChangeState(_stateMachine.SlidingState());
-            }
+            HandleSlidingStateTransition();
         }
     }
 }

@@ -22,6 +22,7 @@ namespace ThirdPersonMeleeSystem.Managers
         
         [SerializeField] private MeleeWeapon currentWeapon;
         [SerializeField] private WeaponEvents playerWeaponEvents;
+        [SerializeField] private AvatarMask armsOnlyMask;
 
         #endregion
     
@@ -75,7 +76,7 @@ namespace ThirdPersonMeleeSystem.Managers
 
         public void EquipWeapon()
         {
-            PlayerAnimationManager.Instance.PlayAction(currentWeapon.equipAnimation);
+            PlayerAnimationManager.Instance.PlayAction(currentWeapon.equipAnimation, armsOnlyMask);
             SetIsWeaponDrawn(true);
         }
         
@@ -88,7 +89,7 @@ namespace ThirdPersonMeleeSystem.Managers
         
         public void SheatheWeapon()
         {
-            PlayerAnimationManager.Instance.PlayAction(currentWeapon.sheatheAnimation);
+            PlayerAnimationManager.Instance.PlayAction(currentWeapon.sheatheAnimation, armsOnlyMask);
             SetIsWeaponDrawn(false);
         }
 

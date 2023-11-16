@@ -38,8 +38,10 @@ public class FreeflowCombatController : MonoBehaviour
     private void Update()
     {
         if (!FreeFlowTarget) return;
-        if (!(Vector3.Distance(transform.position, FreeFlowTarget.transform.position) > freeFlowRange)) return;
-        ClearFreeFlowTarget();
+        if (Vector3.Distance(transform.position, FreeFlowTarget.transform.position) > freeFlowRange || !FreeFlowTarget.enabled)
+        {
+            ClearFreeFlowTarget();
+        }
     }
 
     public void GetPotentialTargets()

@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: Player Footstep Sounds
   m_EditorClassIdentifier: 
   textureSounds:
-  - texture: {fileID: 0}
+  - texture: {fileID: 2800000, guid: 9f56a8e21ec8df040aab41ea62797093, type: 3}
+    soundAsset: {fileID: 0}
     sound: {fileID: 0}
   - texture: {fileID: 0}
+    soundAsset: {fileID: 0}
     sound: {fileID: 0}
   - texture: {fileID: 0}
+    soundAsset: {fileID: 0}
     sound: {fileID: 0}

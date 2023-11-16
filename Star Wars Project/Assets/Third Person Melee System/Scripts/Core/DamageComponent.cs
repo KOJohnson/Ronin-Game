@@ -35,7 +35,7 @@ namespace ThirdPersonMeleeSystem
 
         public void TakeDamage(Vector3 attackerPos, int damage, int postureDamage, AttackType attackType)
         {
-            OnTakeDamageEvent?.Invoke(); //Do damage
+            OnTakeDamageEvent?.Invoke();
         }
 
     }

@@ -6,6 +6,9 @@ namespace ThirdPersonMeleeSystem.Managers
     {
         #region Public Fields
 
+        public static readonly float ToDirectionalBlendTree = 1f;
+        public static readonly float ToLinearBlendTree = 0f;
+        
         public readonly int VelocityID = Animator.StringToHash("Velocity");
         public readonly int VelocityXID = Animator.StringToHash("VelocityX");
         public readonly int VelocityZID = Animator.StringToHash("VelocityZ");
@@ -20,6 +23,7 @@ namespace ThirdPersonMeleeSystem.Managers
         public readonly int LinearToDirectionalID = Animator.StringToHash("LinearToDirectional");
         public readonly int StandingToCrouchingID = Animator.StringToHash("StandingToCrouch");
         public readonly int JogToWalkID = Animator.StringToHash("JogToWalk");
+        public readonly int IsBlockingID = Animator.StringToHash("IsBlocking");
         
         #endregion
     
@@ -115,6 +119,11 @@ namespace ThirdPersonMeleeSystem.Managers
         public void SetIsCrouching(bool state)
         {
             AnimancerComponent.SetBool(IsCrouchingID, state);
+        }
+
+        public void SetIsBlocking(bool state)
+        {
+            AnimancerComponent.SetBool(IsBlockingID, state);
         }
 
         public void ResetAnimatorVelocityParameters()

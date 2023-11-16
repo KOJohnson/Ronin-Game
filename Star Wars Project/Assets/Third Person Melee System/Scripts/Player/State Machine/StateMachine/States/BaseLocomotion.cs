@@ -15,9 +15,6 @@ namespace ThirdPersonMeleeSystem.StateMachine
 
         private bool _canSheatheWeapon => InputController.DrawWeaponFlag &&
                                           !PlayerAnimationManager.Instance.IsInteracting;
-        
-        protected const float toLinearBlendTree = 0f;
-        protected const float toDirectionalBlendTree = 1f;
 
 
 
@@ -54,10 +51,15 @@ namespace ThirdPersonMeleeSystem.StateMachine
             if (_stateMachineController.WeaponManager.IsWeaponDrawn)
             {
                 HandleFinisherState();
+                
+                if (InputController.BlockFlag && !_stateMachineController.AnimationManager.IsInteracting)
+                {
+                    ChangeState(_stateMachine.BlockingState());
+                }
             }
         }
         
-        private void HandleMovement()
+        protected void HandleMovement()
         {
             if (!PlayerAnimationManager.Instance.IsInteracting)
             {
@@ -65,25 +67,25 @@ namespace ThirdPersonMeleeSystem.StateMachine
             }
         }
 
-        private void HandleRotation()
+        protected void HandleRotation()
         {
             if (_stateMachine.currentState is RunningState)
             {
-                _stateMachineController.AnimationManager.SetLinearToDirectionalParameter(toLinearBlendTree);
+                _stateMachineController.AnimationManager.SetLinearToDirectionalParameter(PlayerAnimationManager.ToLinearBlendTree);
                 _stateMachineController.ThirdPersonController.RotateToMovementDirection(!PlayerAnimationManager.Instance.IsInteracting);
             }
             else
             {
                 if (_stateMachineController.CameraController.LockedOnTarget)
                 {
-                    _stateMachineController.AnimationManager.SetLinearToDirectionalParameter(toDirectionalBlendTree);
+                    _stateMachineController.AnimationManager.SetLinearToDirectionalParameter(PlayerAnimationManager.ToDirectionalBlendTree);
                     _stateMachineController.ThirdPersonController.LookAtTarget(
                         _stateMachineController.CameraController.CurrentLockOnTarget.transform.position,
                         !PlayerAnimationManager.Instance.IsInteracting);
                 }
                 else
                 {
-                    _stateMachineController.AnimationManager.SetLinearToDirectionalParameter(toLinearBlendTree);
+                    _stateMachineController.AnimationManager.SetLinearToDirectionalParameter(PlayerAnimationManager.ToLinearBlendTree);
                     _stateMachineController.ThirdPersonController.RotateToMovementDirection(!PlayerAnimationManager
                         .Instance.IsInteracting);
                 }
@@ -132,7 +134,10 @@ namespace ThirdPersonMeleeSystem.StateMachine
 
         protected void HandleSlidingStateTransition()
         {
-            
+            if (InputController.SlideFlag)
+            {
+                ChangeState(_stateMachine.SlidingState());
+            }
         }
 
         private void HandleFinisherState()

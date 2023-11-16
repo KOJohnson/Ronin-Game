@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using ThirdPersonMeleeSystem.ScriptableObjects;
 using UnityEngine;
 
@@ -10,9 +11,8 @@ namespace ThirdPersonMeleeSystem
         #endregion
     
         #region Private Fields
-
-
-        private int _currentPosture;
+        
+        [ShowInInspector]private int _currentPosture;
         
         #endregion
     

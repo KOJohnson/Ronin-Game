@@ -279,8 +279,10 @@ namespace ThirdPersonMeleeSystem.Managers
         private void TrackTargetDistance()
         {
             if (CurrentLockOnTarget == null) return;
-            if (!(Vector3.Distance(transform.position, CurrentLockOnTarget.transform.position) > maximumLockOnDistance)) return;
-            ClearLockOn();
+            if (Vector3.Distance(transform.position, CurrentLockOnTarget.transform.position) > maximumLockOnDistance || !CurrentLockOnTarget.enabled)
+            {
+                ClearLockOn();
+            }
         }
     
         public void ClearLockOn()
