@@ -54,6 +54,7 @@ namespace ThirdPersonMeleeSystem
         private void OnEnable()
         {
             enemyController.deathEvent += DisableDamageCollider;
+            enemyController.deathEvent += () => gameObject.SetActive(false);
         }
 
         private void OnDisable()

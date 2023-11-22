@@ -17,11 +17,13 @@ namespace ThirdPersonMeleeSystem.StateMachine
         private readonly Timer _rollTimer = new(duration);
         private readonly Timer _dodgeTimer = new(duration);
         private Vector2 _input;
+        private Vector3 _dashDir;
 
         public override void EnterState()
         {
             _stateMachineController.AnimationManager.ResetAnimatorVelocityParameters();
             _input = _stateMachineController.InputController.GetRawMovementInput();
+            _dashDir = _stateMachineController.InputController.GetCameraRelativeMovementDirection();
             PlayDodgeAnimation();
         }
 

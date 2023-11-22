@@ -1,13 +1,17 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using ThirdPersonMeleeSystem;
 using UnityEngine;
 
 public class EnemyCombatManager : MonoBehaviour
 {
     public static EnemyCombatManager Instance;
+    public event Action EnemyCountChanged;
     
-    [SerializeField]private List<EnemyController> enemiesInCombat;
+    [SerializeField]private List<EnemyController> enemiesInCombat = new ();
+
+    [SerializeField] private int currentValue;
+    [SerializeField] private int valueLastFrame;
 
     private void Awake()
     {
@@ -21,6 +25,29 @@ public class EnemyCombatManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        currentValue = GetEnemyCombatCount();
+        
+        if (currentValue != valueLastFrame)
+        {
+            OnEnemyCountChanged();
+            Debug.Log("value changed");
+        }
+            
+        valueLastFrame = currentValue;
+    }
+
+    public List<EnemyController> GetEnemiesInCombat()
+    {
+        return enemiesInCombat;
+    }
+
+    public void OnEnemyCountChanged()
+    {
+        EnemyCountChanged?.Invoke();
+    }
+
     public void AddToList(EnemyController enemyToAdd)
     {
         enemiesInCombat.Add(enemyToAdd);
@@ -30,5 +57,9 @@ public class EnemyCombatManager : MonoBehaviour
     {
         enemiesInCombat.Remove(enemyToAdd);
     }
-    
+
+    public int GetEnemyCombatCount()
+    {
+        return enemiesInCombat.Count;
+    }
 }

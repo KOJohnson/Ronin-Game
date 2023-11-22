@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using Animancer;
 using ThirdPersonMeleeSystem.ScriptableObjects;
 using UnityEngine;
@@ -49,7 +48,7 @@ namespace ThirdPersonMeleeSystem.Managers
         [SerializeField] private float sphereCastDistance;
         [SerializeField] private float yOffset;
         [SerializeField] private float slopeRayLength;
-        [SerializeField] private LayerMask whatIsGround;
+        [field:SerializeField] public LayerMask WhatIsGround { get; private set; }
 
         [Header("Animation")] 
         [SerializeField] private LocomotionAsset locomotionAsset;
@@ -79,6 +78,9 @@ namespace ThirdPersonMeleeSystem.Managers
         [SerializeField] private float slideSpeed = 5f;
         [SerializeField] private float slideDuration = 1f;
 
+        [Header("Dash")] 
+        [SerializeField] private float dashSpeed;
+
         [Header("Vaulting")]
         [SerializeField] private Vector3 vaultRayOrigin;
         [SerializeField] private float rayLength;
@@ -98,6 +100,8 @@ namespace ThirdPersonMeleeSystem.Managers
         public float SlideSpeed => slideSpeed;
         public float SlideDuration => slideDuration;
 
+        public float DistanceToTriggerJumpAttack;
+
         #endregion
 
         private void Start()
@@ -107,7 +111,6 @@ namespace ThirdPersonMeleeSystem.Managers
 
         private void Update()
         {
-            SimpleVault();
             GroundCheck();
             HandleGravity();
         }
@@ -121,10 +124,9 @@ namespace ThirdPersonMeleeSystem.Managers
         {
             _currentSpeed = Mathf.SmoothDamp(_currentSpeed, _speed, ref _speedVelocityRef, speedSmoothTime);
             
-            //bug: if we are running I do not want to use SmootherTransformMovementDirection.
             Vector3 moveDir = cameraController.LockedOnTarget && !InputController.SprintFlag ? inputController.GetSmoothedTransformMovementDirection() : inputController.GetSmoothedCameraMovementDirection();
             Vector3 customVelocity = AdjustVelocityToSlope(moveDir * (_currentSpeed * Time.deltaTime));
-            Vector3 airVelocity = inputController.GetCameraRelativeMovementDirection() * (airSpeed * Time.deltaTime);
+            Vector3 airVelocity = inputController.GetCameraRelativeMovementDirection() * (_currentSpeed * Time.deltaTime);
 
             _playerVelocity = grounded ? customVelocity : airVelocity;
             _playerVelocity.y += YSpeed * Time.deltaTime;
@@ -142,6 +144,11 @@ namespace ThirdPersonMeleeSystem.Managers
                 _playerVelocity.y += YSpeed * Time.deltaTime;
                 characterController.Move(_playerVelocity);
             }
+        }
+
+        public void JumpAttackMove()
+        {
+            characterController.Move(new Vector3(0f, YSpeed, 0.2f) * Time.deltaTime);
         }
 
         public void SetPlayerSpeed(float targetSpeed)
@@ -180,7 +187,7 @@ namespace ThirdPersonMeleeSystem.Managers
         private void GroundCheck()
         {
             Ray groundRay = new Ray(transform.position + new Vector3(0f, yOffset, 0f), Vector3.down);
-            grounded = Physics.SphereCast(groundRay, sphereCastRadius, sphereCastDistance, whatIsGround);
+            grounded = Physics.SphereCast(groundRay, sphereCastRadius, sphereCastDistance, WhatIsGround);
         }
 
         private void HandleGravity()
@@ -200,18 +207,19 @@ namespace ThirdPersonMeleeSystem.Managers
             YSpeed = Mathf.Sqrt(jumpForce * -2f * gravity);
         }
         
-        
-        public void Slide(Vector3 direction, float speed)
+        public void Slide(Vector3 direction)
         {
-            _playerVelocity = direction * (speed * Time.deltaTime);
+            _playerVelocity = direction * (slideSpeed * Time.deltaTime);
             _playerVelocity.y += YSpeed * Time.deltaTime;
             characterController.Move(_playerVelocity);
-            //now gravity should work
         }
 
-        private void SimpleVault()
+        public void Dash(Vector3 direction)
         {
-            
+            Vector3 motion = AdjustVelocityToSlope(direction * (dashSpeed * Time.deltaTime));
+            _playerVelocity = motion;
+            _playerVelocity.y += YSpeed * Time.deltaTime;
+            characterController.Move(_playerVelocity);
         }
         
         private void DebugVaulting()
@@ -275,7 +283,7 @@ namespace ThirdPersonMeleeSystem.Managers
         private Vector3 AdjustVelocityToSlope(Vector3 velocity)
         {
             Ray ray = new Ray(transform.position, Vector3.down);
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, slopeRayLength, whatIsGround))
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, slopeRayLength, WhatIsGround))
             {
                 Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
                 Vector3 adjustedVelocity = slopeRotation * velocity;

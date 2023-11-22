@@ -39,8 +39,7 @@ namespace ThirdPersonMeleeSystem.Managers
         [SerializeField] private float maxClamp;
 
         [Header("Soft Lock On Camera")] 
-        private const int MAX_COLLIDERS = 10;
-        private Collider[] _softLockTargets = new Collider[MAX_COLLIDERS];
+        [SerializeField] private float maxDistance;
 
         [Header("Hard Lock On Camera")] 
         [SerializeField] private float lookAtSpeed = 0.3f;
@@ -137,21 +136,17 @@ namespace ThirdPersonMeleeSystem.Managers
         private void FindSoftLockTargets()
         {
             if (CurrentLockOnTarget) return;
-            
-            int numOfColliders = Physics.OverlapSphereNonAlloc(transform.position, maximumLockOnDistance, _softLockTargets);
-            
-            FilterLockOnTargets(_softLockTargets, numOfColliders);
-            
+
             float shortestDistance = Mathf.Infinity;
 
-            for (int i = 0; i < _availableTargets.Count; i++)
+            for (int i = 0; i < EnemyCombatManager.Instance.GetEnemyCombatCount(); i++)
             {
-                float distanceFromTarget = Vector3.Distance(transform.position, _availableTargets[i].transform.position);
+                float distanceFromTarget = Vector3.Distance(transform.position, EnemyCombatManager.Instance.GetEnemiesInCombat()[i].transform.position);
 
                 if (distanceFromTarget < shortestDistance)
                 {
                     shortestDistance = distanceFromTarget;
-                    _nearestSoftLockOnTarget = _availableTargets[i];
+                    _nearestSoftLockOnTarget = EnemyCombatManager.Instance.GetEnemiesInCombat()[i].LockOnTarget;
                 }
             }
 

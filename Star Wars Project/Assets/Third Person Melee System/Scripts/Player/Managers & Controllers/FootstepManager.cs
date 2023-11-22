@@ -1,4 +1,3 @@
-using System;
 using Sirenix.OdinInspector;
 using ThirdPersonMeleeSystem.ScriptableObjects;
 using UnityEngine;

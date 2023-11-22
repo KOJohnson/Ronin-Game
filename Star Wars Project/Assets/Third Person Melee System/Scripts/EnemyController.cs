@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using ThirdPersonMeleeSystem;
 
 public class EnemyController : MonoBehaviour
 {
@@ -14,14 +15,26 @@ public class EnemyController : MonoBehaviour
     #endregion
     
     #region Serialized Fields
+    
+    
+    
     #endregion
     
     #region Getters
+    
+    [field:SerializeField] public LockOnTarget LockOnTarget { get; set;}
+    
+    
     #endregion
 
-    private void Start()
+    private void OnEnable()
     {
-        
+        EnemyCombatManager.Instance.AddToList(this);
+    }
+
+    private void OnDisable()
+    {
+        EnemyCombatManager.Instance.RemoveFromList(this);
     }
 
     public void OnDeathEvent()

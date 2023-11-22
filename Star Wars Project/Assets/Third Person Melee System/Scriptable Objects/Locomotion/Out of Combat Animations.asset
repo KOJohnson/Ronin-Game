@@ -108,7 +108,7 @@ MonoBehaviour:
     _Speed: 1
     _NormalizedStartTime: NaN
     UseRootMotion: 0
-    IsInteracting: 1
+    IsInteracting: 0
     IsSticky: 0
   jumpEnd:
     _FadeDuration: 0.25
@@ -120,7 +120,7 @@ MonoBehaviour:
     _Speed: 1
     _NormalizedStartTime: NaN
     UseRootMotion: 0
-    IsInteracting: 1
+    IsInteracting: 0
     IsSticky: 0
   slideStart:
     _FadeDuration: 0.25

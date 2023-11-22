@@ -22,75 +22,29 @@ MonoBehaviour:
     _Asset: {fileID: 0}
   blockingDirectionalMixer:
     _Asset: {fileID: 0}
-  combatWalkStart:
+  blockStart:
     _FadeDuration: 0.25
     _Events:
-      _NormalizedTimes: []
+      _NormalizedTimes:
+      - 0.7463158
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 0}
+    _Clip: {fileID: 7400002, guid: 4539621a37b409840b7b8e0dc0c51618, type: 3}
     _Speed: 1
-    _NormalizedStartTime: NaN
+    _NormalizedStartTime: 0
     UseRootMotion: 0
     IsInteracting: 0
     IsSticky: 0
-  combatJogStart:
+  blockRelease:
     _FadeDuration: 0.25
     _Events:
-      _NormalizedTimes: []
+      _NormalizedTimes:
+      - 0.6073684
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 0}
+    _Clip: {fileID: 7400002, guid: 4cc90160a67ce3f46bbabed1d6b119d5, type: 3}
     _Speed: 1
-    _NormalizedStartTime: NaN
-    UseRootMotion: 0
-    IsInteracting: 0
-    IsSticky: 0
-  combatRunStart:
-    _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 0}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-    UseRootMotion: 0
-    IsInteracting: 0
-    IsSticky: 0
-  combatWalkStop:
-    _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 0}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-    UseRootMotion: 0
-    IsInteracting: 0
-    IsSticky: 0
-  combatJogStop:
-    _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 0}
-    _Speed: 1
-    _NormalizedStartTime: NaN
-    UseRootMotion: 0
-    IsInteracting: 0
-    IsSticky: 0
-  combatRunStop:
-    _FadeDuration: 0.25
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 0}
-    _Speed: 1
-    _NormalizedStartTime: NaN
+    _NormalizedStartTime: 0
     UseRootMotion: 0
     IsInteracting: 0
     IsSticky: 0
@@ -100,7 +54,7 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: 938dd1fd6a847c742af3e5423cb5923c, type: 2}
+    _Clip: {fileID: 7400002, guid: 945b55edfc0ad224ca4acd04e340617f, type: 3}
     _Speed: 1
     _NormalizedStartTime: NaN
     UseRootMotion: 0
@@ -112,7 +66,7 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: 0def3420ae096d54f9f0c73b3f0b6d21, type: 2}
+    _Clip: {fileID: 7400002, guid: cfb019d410ec3e548bdfbf114377a8dc, type: 3}
     _Speed: 1
     _NormalizedStartTime: NaN
     UseRootMotion: 0
@@ -124,7 +78,7 @@ MonoBehaviour:
       _NormalizedTimes: []
       _Callbacks: []
       _Names: []
-    _Clip: {fileID: 7400000, guid: 5c7af293236999640a4d179cb33aa681, type: 2}
+    _Clip: {fileID: 7400002, guid: 4c0acc043cdafb04cb29f8187edbcfb3, type: 3}
     _Speed: 1
     _NormalizedStartTime: NaN
     UseRootMotion: 0

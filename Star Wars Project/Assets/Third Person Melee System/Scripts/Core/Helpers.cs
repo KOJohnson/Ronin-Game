@@ -9,5 +9,10 @@ namespace ThirdPersonMeleeSystem.Core
             targetPosition.y = currentPosition.y;
             return Vector3.MoveTowards(targetPosition, currentPosition, offset);
         }
+
+        public static bool IsInRange(this int value, Vector2 minMax)
+        {
+            return value >= minMax.x && value < minMax.y;
+        }
     }
 }

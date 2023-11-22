@@ -67,7 +67,7 @@ MonoBehaviour:
         _Names:
         - Damage Open
       _Clip: {fileID: 7400000, guid: 565887332f81fe9498198cd4ca7e804c, type: 2}
-      _Speed: 1
+      _Speed: 1.25
       _NormalizedStartTime: NaN
       UseRootMotion: 1
       IsInteracting: 1

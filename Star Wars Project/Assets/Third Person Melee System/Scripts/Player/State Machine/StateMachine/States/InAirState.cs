@@ -1,4 +1,6 @@
-﻿namespace ThirdPersonMeleeSystem.StateMachine
+﻿using ThirdPersonMeleeSystem.Managers;
+
+namespace ThirdPersonMeleeSystem.StateMachine
 {
     public class InAirState : BaseState
     {
@@ -13,11 +15,27 @@
         public override void Tick(float delta)
         {
             _stateMachineController.ThirdPersonController.MovePlayer();
-            //do animation in animator controller
+            
+            _stateMachineController.AnimationManager.PlayAction(WeaponManager.Instance.IsWeaponDrawn ?
+                WeaponManager.Instance.GetCurrentWeapon().LocomotionAsset.combatJumpLoop :
+                _stateMachineController.ThirdPersonController.GetLocomotionAsset().jumpLoop);
+            
+            if (_stateMachineController.CameraController.LockedOnTarget)
+            {
+                _stateMachineController.ThirdPersonController.LookAtTarget(
+                    _stateMachineController.CameraController.CurrentLockOnTarget.transform.position, true);
+            }
+            else
+            {
+                _stateMachineController.ThirdPersonController.RotateToMovementDirection(true);
+            }
         }
 
         protected override void ExitState()
         {
+            _stateMachineController.AnimationManager.PlayAction(WeaponManager.Instance.IsWeaponDrawn ?
+                WeaponManager.Instance.GetCurrentWeapon().LocomotionAsset.combatJumpEnd :
+                _stateMachineController.ThirdPersonController.GetLocomotionAsset().jumpEnd);
         }
 
         public override void CheckSwitchState()

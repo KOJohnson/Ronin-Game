@@ -10,6 +10,7 @@ namespace ThirdPersonMeleeSystem.StateMachine
 
         public override void EnterState()
         {
+            _stateMachineController.WeaponManager.BlockUp();
             _stateMachineController.ThirdPersonController.SetPlayerSpeed(_stateMachineController.ThirdPersonController.WalkSpeed);
             _stateMachineController.AnimationManager.SetIsBlocking(true);
         }
@@ -33,6 +34,7 @@ namespace ThirdPersonMeleeSystem.StateMachine
         {
             if (!InputController.BlockFlag)
             {
+                _stateMachineController.WeaponManager.BlockRelease();
                 ChangeState(_stateMachine.IdleState());
             }
         }

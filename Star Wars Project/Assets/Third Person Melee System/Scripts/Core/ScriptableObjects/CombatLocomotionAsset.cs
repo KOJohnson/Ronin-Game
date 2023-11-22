@@ -14,16 +14,10 @@ namespace ThirdPersonMeleeSystem.ScriptableObjects
         [SerializeField] private LinearMixerTransitionAsset.UnShared blockingLinearMixer;
         [SerializeField] private MixerTransition2DAsset.UnShared blockingDirectionalMixer;
         
-        [Header("Start Animations")]
-        public AnimationData combatWalkStart;
-        public AnimationData combatJogStart;
-        public AnimationData combatRunStart;
+        [Header("Block Animations")]
+        public AnimationData blockStart;
+        public AnimationData blockRelease;
         
-        [Header("Stop Animations")]
-        public AnimationData combatWalkStop;
-        public AnimationData combatJogStop;
-        public AnimationData combatRunStop;
-
         [Header("Jump Animations")] 
         public AnimationData combatJumpStart;
         public AnimationData combatJumpLoop;

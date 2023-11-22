@@ -39,6 +39,7 @@ namespace ThirdPersonMeleeSystem.StateMachine
 
         protected override void ExitState()
         {
+            WeaponManager.Instance.PlayerWeaponEvents.OnToggleDamageComponent(false);
             WeaponManager.Instance.PlayerWeaponEvents.OnEnableCombo(false);
         }
         
@@ -110,7 +111,6 @@ namespace ThirdPersonMeleeSystem.StateMachine
             _stateMachineController.FreeFlowCombatController.GetPotentialTargets();
             //change soft lock target to the free flow target
             _stateMachineController.CameraController.ChangeSoftLockTarget(_stateMachineController.FreeFlowCombatController.FreeFlowTarget);
-            
         }
 
         private void RotateToTarget(Vector3 target)

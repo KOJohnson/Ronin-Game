@@ -36,7 +36,7 @@ namespace ThirdPersonMeleeSystem.StateMachine
 
         public override void CheckSwitchState()
         {
-            if (_stateMachineController.ThirdPersonController.CanJump && InputController.JumpFlag)
+            if (_stateMachineController.ThirdPersonController.PlayerGrounded && InputController.JumpFlag)
             {
                 ChangeState(_stateMachine.JumpingState());
             }

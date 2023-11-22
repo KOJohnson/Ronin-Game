@@ -68,7 +68,7 @@ MonoBehaviour:
         - Hit Open
         - Hit Close
       _Clip: {fileID: 7400000, guid: 5029b485ac85ca0478e8877b25e6dec6, type: 3}
-      _Speed: 1
+      _Speed: 1.25
       _NormalizedStartTime: NaN
       UseRootMotion: 1
       IsInteracting: 1

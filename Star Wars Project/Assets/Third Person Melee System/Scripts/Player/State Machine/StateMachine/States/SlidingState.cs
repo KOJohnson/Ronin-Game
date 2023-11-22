@@ -30,12 +30,8 @@ namespace ThirdPersonMeleeSystem.StateMachine
         public override void Tick(float delta)
         {
             slideTimer.Tick(delta);
-            
             _stateMachineController.AnimationManager.PlayAction(_stateMachineController.ThirdPersonController.GetLocomotionAsset().slideLoop);
-
-            _stateMachineController.ThirdPersonController.Slide
-                (_stateMachineController.transform.forward, _stateMachineController.ThirdPersonController.SlideSpeed);
-            
+            _stateMachineController.ThirdPersonController.Slide(_stateMachineController.transform.forward);
         }
 
         public override void CheckSwitchState()

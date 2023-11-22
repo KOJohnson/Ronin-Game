@@ -18,9 +18,9 @@ namespace ThirdPersonMeleeSystem.Structs
         
         [Header("Overrides")]
         [Space]public bool OverrideDamage;
-        public int damageOverride;
+        [ShowIf("OverrideDamage")]public int damageOverride;
         
-        [Space] public bool OverrideAnimation;
+        public bool OverrideAnimation;
         [ShowIf("OverrideAnimation")]public AnimationData animationOverride;
     }
 }

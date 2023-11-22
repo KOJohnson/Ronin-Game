@@ -1,7 +1,9 @@
 using System;
+using Sirenix.OdinInspector;
 using ThirdPersonMeleeSystem.Managers;
 using ThirdPersonMeleeSystem.ScriptableObjects;
 using ThirdPersonMeleeSystem.Structs;
+using UnityEditor;
 using UnityEngine;
 using XftWeapon;
 using Random = UnityEngine.Random;
@@ -26,6 +28,8 @@ namespace ThirdPersonMeleeSystem.Weapons
         [Header("Attack Animations")]
         public AttackData[] lightAttacks;
         public AttackData[] heavyAttacks;
+        public AttackData jumpAttackStart, jumpAttackEnd;
+        public AnimationData jumpAttackLoop;
         public AttackData sprintAttack;
 
         [Header("Finisher Animations")] 
@@ -159,6 +163,19 @@ namespace ThirdPersonMeleeSystem.Weapons
             int random = Random.Range(0, weaponSounds.weaponSwingSound.Length);
             weaponAudioSource.PlayOneShot(weaponSounds.weaponSwingSound[random]);
         }
+        
+        #if UNITY_EDITOR
+
+        [Button]
+        private void CreateNewAttackDataAsset()
+        {
+            AttackData newAttackSO = ScriptableObject.CreateInstance<AttackData>();
+            string path = AssetDatabase.GenerateUniqueAssetPath("Assets/Third Person Melee System/Scriptable Objects/Attack Presets/New Attack Data Asset.asset");
+            AssetDatabase.CreateAsset(newAttackSO, path);
+            EditorUtility.OpenPropertyEditor(newAttackSO);
+        }
+        
+        #endif
         
     }
 }
