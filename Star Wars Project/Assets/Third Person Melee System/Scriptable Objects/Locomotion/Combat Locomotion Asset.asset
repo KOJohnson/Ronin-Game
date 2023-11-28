@@ -75,7 +75,8 @@ MonoBehaviour:
   combatJumpEnd:
     _FadeDuration: 0.25
     _Events:
-      _NormalizedTimes: []
+      _NormalizedTimes:
+      - 0.14201593
       _Callbacks: []
       _Names: []
     _Clip: {fileID: 7400002, guid: 4c0acc043cdafb04cb29f8187edbcfb3, type: 3}

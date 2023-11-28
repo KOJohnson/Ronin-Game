@@ -37,7 +37,8 @@ namespace ThirdPersonMeleeSystem.StateMachine
                 _stateMachineController.AnimationManager.PlayAction(_stateMachineController.WeaponManager.GetCurrentWeapon().jumpAttackLoop);
             }
             
-            if (!_animPlayed && hit.distance <= _stateMachineController.ThirdPersonController.DistanceToTriggerJumpAttack)
+            if (!_animPlayed && _stateMachineController.ThirdPersonController.IsFalling
+                             && hit.distance <= _stateMachineController.ThirdPersonController.DistanceToTriggerJumpAttack)
             {
                 _animPlayed = true;
                 PlayAttackAnimation(_stateMachineController.WeaponManager.GetCurrentWeapon().jumpAttackEnd);

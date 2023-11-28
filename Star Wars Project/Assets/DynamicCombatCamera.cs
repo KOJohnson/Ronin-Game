@@ -28,7 +28,7 @@ public class DynamicCombatCamera : MonoBehaviour
     {
         foreach (CombatCameraTransition transition in cameraTransitions)
         {
-            if (EnemyCombatManager.Instance.GetEnemyCombatCount().IsInRange(transition.enemyCountMinMax))
+            if (EnemyCombatManager.Instance.GetEnemyCombatCount().IsInRangeOf(transition.enemyCountMinMax))
             {
                 ChangeVirtualCamera(transition.combatCamera);
             }

@@ -99,6 +99,7 @@ namespace ThirdPersonMeleeSystem.Managers
         public bool CanJump => grounded && jumpCount > 0;
         public float SlideSpeed => slideSpeed;
         public float SlideDuration => slideDuration;
+        public bool IsFalling => !PlayerGrounded && YSpeed < 0;
 
         public float DistanceToTriggerJumpAttack;
 

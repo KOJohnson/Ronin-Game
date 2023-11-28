@@ -21,6 +21,7 @@ namespace ThirdPersonMeleeSystem.Managers
         public static bool JumpFlag;
         public static bool CrouchFlag;
         public static bool SlideFlag;
+        public static bool ClimbFlag;
 
         #endregion
 
@@ -72,6 +73,7 @@ namespace ThirdPersonMeleeSystem.Managers
 
         private void Update()
         {
+            ClimbFlag = PlayerInput.Gameplay.Climb.WasPressedThisFrame();
             BlockFlag = PlayerInput.Combat.Block.IsPressed();
             SlideFlag = PlayerInput.Gameplay.Slide.WasPerformedThisFrame();
             JumpFlag = PlayerInput.Gameplay.Jump.WasPerformedThisFrame();

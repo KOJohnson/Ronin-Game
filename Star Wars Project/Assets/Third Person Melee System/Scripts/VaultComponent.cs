@@ -2,18 +2,25 @@ using System;
 using ThirdPersonMeleeSystem.Managers;
 using UnityEngine;
 
-public class Vaulting : MonoBehaviour
+public class VaultComponent : MonoBehaviour
 {
     #region Public Fields
     #endregion
     
     #region Private Fields
+
+    private Vector3 _endPosition;
+    private Vector3 _startPosition;
+
+    private float _timeElapsed;
+    
     #endregion
     
     #region Serialized Fields
 
     [Header("Vaulting")]
     [SerializeField] private float rayLength;
+    [SerializeField] private float climbDuration;
 
     private RaycastHit _hit;
 
@@ -34,32 +41,31 @@ public class Vaulting : MonoBehaviour
     {
         if (InputController.ClimbFlag)
         {
-            VaultingTest();
+            Vault();
         }
     }
 
-    private void VaultingTest()
+    private void Vault()
     {
         Vector3 origin = transform.position;
         Vector3 direction = transform.forward;
-        const float verticalRayLength = 1.8f;
+        const float verticalRayLength = 5f;
         
         origin.y += 0.85f;
         Debug.DrawRay(origin, direction * rayLength, Color.white, 3f);
         if (Physics.Raycast(origin, direction, out _hit, rayLength))
         {
             Vector3 origin2 = origin;
-            origin2.y += 0.8f;
+            origin2.y += 0.75f;
             Debug.DrawRay(origin2, direction * rayLength, Color.white, 3f);
             if (Physics.Raycast(origin2, direction, out _hit, rayLength))
             {
                 Vector3 origin4 = origin2 + (direction * rayLength);
-                origin4.y += 1f;
+                origin4.y += 2f;
                 Debug.DrawRay(origin4, Vector3.down * verticalRayLength, Color.white, 3f);
                 if (Physics.Raycast(origin4, Vector3.down, out _hit, verticalRayLength))
                 {
-                    //move here
-                    transform.position = _hit.point;
+                    SetClimbing();
                 }
             }
             else
@@ -68,32 +74,47 @@ public class Vaulting : MonoBehaviour
                 Debug.DrawRay(origin3, Vector3.down * verticalRayLength, Color.white, 3f);
                 if (Physics.Raycast(origin3, Vector3.down, out _hit, verticalRayLength))
                 {
-                    //move here
-                    transform.position = _hit.point;
+                    SetClimbing();
                 }
             }
         }
     }
 
-    public void Climb(Vector3 startPosition, Vector3 endPosition)
+    private void SetClimbing()
     {
-        
+        TriggerClimbAction = true;
+        _startPosition = transform.position;
+        _endPosition = _hit.point;
+    }
+
+    public void MoveToEndPoint()
+    {
+        if (_timeElapsed < climbDuration)
+        {
+            transform.position = Vector3.Slerp(_startPosition, _endPosition, _timeElapsed / climbDuration);
+            _timeElapsed += Time.deltaTime;
+        }
+        else
+        {
+            transform.position = _endPosition;
+        }
+    }
+
+    public void ResetClimbing()
+    {
+        TriggerClimbAction = false;
+        _startPosition = Vector3.zero;
+        _endPosition = Vector3.zero;
+        _timeElapsed = 0f;
+    }
+
+    public bool HasReachedDestination()
+    {
+        return transform.position == _endPosition;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(_hit.point, 0.1f);
-        
-        // Vector3 origin = transform.position;
-        // Vector3 direction = transform.forward;
-        // origin.y += 0.85f;
-        // Gizmos.DrawRay(origin, direction * rayLength);
-        //
-        // Vector3 origin2 = origin;
-        // origin2.y += 0.8f;
-        // Gizmos.DrawRay(origin2, direction * rayLength);
-        //
-        // Vector3 origin3 = origin2 + (direction * rayLength);
-        // Gizmos.DrawRay(origin3, Vector3.down * 1.5f);
     }
 }

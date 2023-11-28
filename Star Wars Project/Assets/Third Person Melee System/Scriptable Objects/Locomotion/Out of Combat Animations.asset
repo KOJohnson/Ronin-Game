@@ -113,7 +113,8 @@ MonoBehaviour:
   jumpEnd:
     _FadeDuration: 0.25
     _Events:
-      _NormalizedTimes: []
+      _NormalizedTimes:
+      - 0.1420159
       _Callbacks: []
       _Names: []
     _Clip: {fileID: 7400002, guid: 54f197a9d97dc1f43b271d896da9589a, type: 3}

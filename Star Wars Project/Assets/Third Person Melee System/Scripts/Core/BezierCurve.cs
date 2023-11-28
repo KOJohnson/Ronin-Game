@@ -4,7 +4,7 @@ namespace ThirdPersonMeleeSystem
 {
     public class BezierCurve
     {
-        public Vector3 CalculateQuadraticBezierCurve(float t, Vector3 p0, Vector3 p1, Vector3 p2)
+        public static Vector3 QuadraticBezierCurve(float t, Vector3 p0, Vector3 p1, Vector3 p2)
         {
             //return = (1-t)2 P0 + 2(1-t)tP1 + t2P2
             //          u            u        tt              

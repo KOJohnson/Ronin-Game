@@ -34,7 +34,6 @@ namespace ThirdPersonMeleeSystem.StateMachine
 
         protected override void ExitState()
         {
-            
         }
 
         public override void CheckSwitchState()

@@ -10,9 +10,14 @@ namespace ThirdPersonMeleeSystem.Core
             return Vector3.MoveTowards(targetPosition, currentPosition, offset);
         }
 
-        public static bool IsInRange(this int value, Vector2 minMax)
+        public static bool IsInRangeOf(this int value, Vector2 minMax)
         {
-            return value >= minMax.x && value < minMax.y;
+            return value >= minMax.x && value <= minMax.y;
+        }
+        
+        public static Vector3 MoveQuadraticCurve(this Vector3 value, float t, Vector3 startPoint, Vector3 endPoint, Vector3 tangent)
+        {
+            return BezierCurve.QuadraticBezierCurve(t, startPoint, endPoint, tangent);
         }
     }
 }

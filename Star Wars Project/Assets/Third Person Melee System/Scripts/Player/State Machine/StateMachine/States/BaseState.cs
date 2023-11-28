@@ -24,5 +24,13 @@ namespace ThirdPersonMeleeSystem.StateMachine
             newState.EnterState();
             _stateMachineController.PlayerStateMachine.currentState = newState;
         }
+
+        protected void HandleClimbTransition()
+        {
+            if (_stateMachineController.VaultComponent.TriggerClimbAction)
+            {
+                ChangeState(_stateMachine.ClimbingState());
+            }
+        }
     }
 }

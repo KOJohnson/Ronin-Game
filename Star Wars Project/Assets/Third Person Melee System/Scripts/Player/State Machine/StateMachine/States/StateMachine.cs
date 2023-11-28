@@ -24,7 +24,8 @@ namespace ThirdPersonMeleeSystem.StateMachine
             SLIDINGSTATE,
             CROUCHINGSTATE,
             BLOCKINGSTATE,
-            JUMPATTACKSTATE
+            JUMPATTACKSTATE,
+            CLIMBINGSTATE
         }
         private readonly Dictionary<_states, BaseState> _stateDictionary = new();
         private StateMachineController _stateMachineController;
@@ -47,6 +48,7 @@ namespace ThirdPersonMeleeSystem.StateMachine
             _stateDictionary[_states.CROUCHINGSTATE] = new CrouchingState(stateMachineController, this);
             _stateDictionary[_states.BLOCKINGSTATE] = new BlockingState(stateMachineController, this);
             _stateDictionary[_states.JUMPATTACKSTATE] = new JumpAttackState(stateMachineController, this);
+            _stateDictionary[_states.CLIMBINGSTATE] = new ClimbingState(stateMachineController, this);
         }
         
         public void Initialise(BaseState startingState)
@@ -133,6 +135,11 @@ namespace ThirdPersonMeleeSystem.StateMachine
         public BaseState JumpAttackState()
         {
             return _stateDictionary[_states.JUMPATTACKSTATE];
+        }
+
+        public BaseState ClimbingState()
+        {
+            return _stateDictionary[_states.CLIMBINGSTATE];
         }
     }
 }

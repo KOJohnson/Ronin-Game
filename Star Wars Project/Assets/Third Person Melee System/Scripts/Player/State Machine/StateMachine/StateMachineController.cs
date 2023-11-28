@@ -32,6 +32,7 @@ namespace ThirdPersonMeleeSystem.StateMachine
         [field:SerializeField]public CameraController CameraController { get; private set;}
         [field:SerializeField]public FreeflowCombatController FreeFlowCombatController { get; private set;}
         [field:SerializeField]public FinisherComponent FinisherComponent { get; private set;}
+        [field:SerializeField]public VaultComponent VaultComponent { get; private set;}
 
         #endregion
     
